@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./37545-9-pokeball-free-download_32x32.ico"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Le jeu du pendu</title>
+  </head>
+  <body>
+    <header>
+      <h1>Trouve le Pokemon !</h1>
+      <img class="rotate" src="./img/pokeball.png" alt="pokeball" />
+    </header>
+    <main>
+      <div class="accueil">
+        <button class="start">Lance le jeu !</button>
+      </div>
+      <div class="gameOver">
+        <p>Vous avez perdu !</p>
+        <img src="img/pikachuko.jpeg" alt="pikachu" />
+        <button class="closeGame"><a href="index.html">Quitter</a></button>
+      </div>
+      <div class="win">
+        <p>Tu as gagné !</p>
+        <img src="img/badge.png" alt="sacha pokemon" />
+        <button class="closeGame"><a href="index.html">Quitter</a></button>
+      </div>
+      <section class="game">
+        <div class="pendu">
+          <img id="img" src="img/img1.png" alt="pendu" />
+        </div>
+        <div class="mot">
+          <p id="hiddenmot"></p>
+        </div>
+        <div class="dresseur">
+          <img src="img/dresseur.png" alt="" />
+          <p class="nbError">Nombre d'erreur : 0</p>
+        </div>
+      </section>
+      <div class="bloc_bas">
+        <div class="texte_pendu">
+          <p>La chasse commence ! Quel est ce pokemon ?</p>
+        </div>
+        <div class="clavier"></div>
+      </div>
+    </main>
+    <footer>&copy; DDf</footer>
+    <script src="index.js"></script>
+  </body>
+</html>
