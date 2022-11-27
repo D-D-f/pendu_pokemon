@@ -1,5 +1,5 @@
 const clavier = document.querySelector(".clavier");
-const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+const alphabet = "azertyuiopqsdfghjklmwxcvbn".split("");
 const p = document.querySelector("#hiddenmot");
 const index = Math.floor(Math.random() * 151);
 const img = document.querySelector("#img");
@@ -9,10 +9,12 @@ const start = document.querySelector(".start");
 const game = document.querySelector(".game");
 const bloc = document.querySelector(".bloc_bas");
 const gameOver = document.querySelector(".gameOver");
+const textPendu = document.querySelector(".texte_pendu > p");
 const win = document.querySelector(".win");
 let pokemon;
 let hidden = [];
 let error = 1;
+console.log(textPendu);
 
 const createButton = (letter, pokemon) => {
   let button = document.createElement("button");
@@ -23,6 +25,7 @@ const createButton = (letter, pokemon) => {
   button.addEventListener("click", () => {
     error++;
     button.disabled = true;
+    button.classList.add("btnCliked");
     checkResponse(hidden, pokemon, button.value);
     img.src = `img/img${error}.png`;
     p.textContent = hidden.join(" ");
@@ -32,12 +35,18 @@ const createButton = (letter, pokemon) => {
     let hiddenTab = hidden.join("");
 
     if (tabOrigine === hiddenTab) {
+      const allBtn = document.querySelectorAll("button");
+      for (let btn of allBtn) {
+        btn.disabled = true;
+      }
+      textPendu.textContent = `Le pokemon est ${tabOrigine}`;
       win.style.display = "block";
       audio(false);
     }
 
     if (error === 10) {
       gameOver.style.display = "block";
+      textPendu.textContent = `Le pokemon est ${tabOrigine}`;
       audio(false);
     }
   });

@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap");
 
+:root {
+  --bg-primary: #0e5e6f;
+  --text: #fee8b7;
+}
 * {
   margin: 0;
   padding: 0;
@@ -12,19 +16,23 @@ html {
 body {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  background-color: #f7f7f7;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 
 header {
+  border-bottom: 3px solid black;
+  background-color: var(--bg-primary);
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
 }
 
 h1 {
-  font-family: "Nabla", cursive;
+  font-family: "Pacifico", cursive;
 }
 
 .gameOver,
@@ -77,10 +85,10 @@ h1 {
 
 main {
   flex: 1;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-color: var(--text);
 }
 
 .dresseur {
@@ -101,6 +109,10 @@ main {
   text-align: center;
 }
 
+#hiddenmot {
+  font-size: 2em;
+}
+
 .pendu {
   text-align: end;
 }
@@ -110,6 +122,7 @@ main {
 }
 
 .texte_pendu {
+  margin: 0 2rem;
   padding: 2rem;
   text-align: center;
   border: 1px solid black;
@@ -118,9 +131,10 @@ main {
 .accueil {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 3rem;
   height: 100%;
-  background-image: url("img/pokemon.jpg");
+  background-image: url("img/bg.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -130,12 +144,18 @@ main {
   padding: 2rem;
   border-radius: 1rem;
   border: none;
-  background-color: #ef9a53;
-  color: white;
+  background-color: var(--bg-primary);
+  color: var(--text);
   font-weight: bold;
 }
 
+.btnCliked {
+  opacity: 0.5;
+}
+
 .clavier {
+  margin: auto;
+  width: 525px;
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -143,15 +163,21 @@ main {
 }
 
 .clavier button {
-  padding: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text);
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid black;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  border: 3px solid black;
 }
 
 .game,
 .bloc_bas {
   display: none;
+  margin: 1rem;
 }
 
 .game,
@@ -160,11 +186,11 @@ main {
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
-
 footer {
-  background-color: black;
-  color: white;
-  padding: 2rem;
+  background-color: var(--bg-primary);
+  color: var(--text);
+  padding: 1rem;
+  border-top: 3px solid black;
 }
 
 @keyframes rotate {
