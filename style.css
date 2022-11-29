@@ -19,6 +19,7 @@ body {
   justify-content: space-between;
   height: 100%;
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 header {
