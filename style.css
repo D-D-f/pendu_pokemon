@@ -19,7 +19,6 @@ body {
   justify-content: space-between;
   height: 100%;
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
 }
 
 header {
@@ -33,6 +32,7 @@ header {
 
 h1 {
   font-family: "Pacifico", cursive;
+  color: var(--text);
 }
 
 .gameOver,
