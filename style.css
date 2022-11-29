@@ -40,14 +40,16 @@ h1 {
   display: none;
   z-index: 1;
   position: absolute;
-  top: 30%;
-  left: 40%;
-  border: 1px solid black;
+  top: 20%;
+  left: 35%;
+  border: 3px solid black;
   border-radius: 0.5rem;
   width: 30%;
   text-align: center;
   padding: 1rem;
   background-color: white;
+  background-color: var(--bg-primary);
+  color: var(--text);
 }
 
 .gameOver p,

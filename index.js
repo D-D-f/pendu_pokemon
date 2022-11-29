@@ -14,7 +14,6 @@ const win = document.querySelector(".win");
 let pokemon;
 let hidden = [];
 let error = 1;
-console.log(textPendu);
 
 const createButton = (letter, pokemon) => {
   let button = document.createElement("button");
@@ -42,9 +41,11 @@ const createButton = (letter, pokemon) => {
       textPendu.textContent = `Le pokemon est ${tabOrigine}`;
       win.style.display = "block";
       audio(false);
+      getImg();
     }
 
     if (error === 10) {
+      getImg();
       gameOver.style.display = "block";
       textPendu.textContent = `Le pokemon est ${tabOrigine}`;
       audio(false);
@@ -62,6 +63,9 @@ const checkResponse = (arrayhidden, arraypokemon, btnvalue) => {
     --error;
   }
   arraypokemon.map((letter, index) => {
+    if (letter === "é" || letter === "è" || letter === "ê") {
+      letter = "e";
+    }
     if (letter === btnvalue) {
       arrayhidden.splice(index, 1, letter);
     }
@@ -80,12 +84,22 @@ const getData = async () => {
     );
     const data = await requete.json();
     pokemon = data.names[4].name.toLowerCase().split("");
-    console.log(data.names[4].name);
     p.textContent = " _ ".repeat(pokemon.length);
     for (let i = 0; pokemon.length > i; i++) {
       hidden.push("_");
     }
     displayButton(alphabet, pokemon);
+  } catch (e) {
+    console.log(e);
+  }
+};
+const getImg = async () => {
+  try {
+    const requete = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`, {
+      method: "GET",
+    });
+    const data = await requete.json();
+    img.src = data.sprites.other.dream_world.front_default;
   } catch (e) {
     console.log(e);
   }
